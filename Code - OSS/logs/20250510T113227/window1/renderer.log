@@ -1,0 +1,6 @@
+2025-05-10 11:32:30.320 [info] Started local extension host with pid 33437.
+2025-05-10 11:32:30.537 [info] Started initializing default profile extensions in extensions installation folder. file:///home/dominik/.vscode-oss/extensions
+2025-05-10 11:32:31.088 [info] ComputeTargetPlatform: linux-x64
+2025-05-10 11:32:31.300 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-05-10 11:32:31.315 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/dominik/.vscode-oss/extensions
+2025-05-10 11:32:34.685 [info] [perf] Render performance baseline is 63ms
