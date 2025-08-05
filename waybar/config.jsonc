@@ -25,10 +25,10 @@
    ],
     "modules-right": [
         // "idle_inhibitor",
+        "backlight",
         "pulseaudio",
         "network",
         "power-profiles-daemon",
-        // "backlight",
         // "sway/language",
         "battery",
         "tray",
@@ -50,7 +50,7 @@
 
     // ---------- MODULES CONFIGURATIONS ----------
     "hyprland/workspaces": {
-        "format": "",
+        "format": "{id}",
         "on-click": "activate",
         "sort-by-number": true
     },
@@ -116,8 +116,8 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "format-alt": "{:%d.%m %A %H:%M}",
+        "format": "{:%d.%m %A %H:%M}",
+        "format-alt": "{:%H:%M:%S}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "month",
@@ -157,11 +157,11 @@
     },
     "temperature": {
         // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -170,17 +170,14 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
@@ -200,24 +197,24 @@
     "network": {
 	    "on-click": "networkmanager_dmenu",
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) 󰖩",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈁",
-        "tooltip-format": "󰩟 {ipaddr}/{cidr} 󰩟",
-        "format-linked": "{ifname} (No IP) 󱛅",
-        "format-disconnected": "Disconnected 󰖪",
+        "format-wifi": "{signalStrength}% 󰖩",
+        "format-ethernet": "󰈁",
+        "tooltip-format": "{essid}\n 󰩟 {ipaddr}/{cidr} 󰩟",
+        "format-linked": "(No IP) 󱛅",
+        "format-disconnected": "󰖪",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "0% 󰋐 {format_source}",
+        "format-muted": "0%   {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
@@ -250,9 +247,10 @@
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
+            "lock": "/home/dominik/.local/bin/swaylock",
+			"shutdown": "systemctl poweroff",
+			"reboot": "systemctl reboot",
+			"suspend": "sswaylock -c 000000 & systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
 		  }

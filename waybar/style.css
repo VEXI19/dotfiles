@@ -1,27 +1,19 @@
-@import "./themes/catppuccin/themes/mocha.css";
+@define-color base #1e1e2e;
+@define-color text #cdd6f4;
+@define-color overlay #9399b2;
+@define-color warning #f9e2af;
+@define-color positive #89b4fa;
+@define-color error #f38ba8;
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrains Mono Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 15px;
 }
 
-/*window#waybar {
-    background: transparent;
-    color: @text;
-    font-weight: bold;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-window#waybar.termite {
-}
-
-window#waybar.chromium {
-    border: none;
-}*/
+/* ----------- */
+/*   TOOLTIP   */
+/* ----------- */
 
 tooltip {
     background-color: @base;
@@ -32,29 +24,34 @@ tooltip {
 
 tooltip label {
     color: @text;
-    font-size: 18px;
+    font-size: 15px;
     margin: 0px; 
     padding: 0 .5rem;
 }
 
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
+/* ---------- */
+/*   WINDOW   */
+/* ---------- */
 
 window {
     background-color: transparent;
     margin: 5px 15px 5px 0px;
     padding: 2px 10px 100px 10px;
     border-radius: 12px;
-    color: @text;
+    color: #000;
     font-size:11;
     font-weight:normal;
-    opacity:0.9;
+    opacity: 1;
 }
 
 window#waybar.empty #window {
     background-color:transparent;
 }
+
+
+/* ----------- */
+/*   MODULES   */
+/* ----------- */
 
 .module,
 #hardware {
@@ -65,10 +62,13 @@ window#waybar.empty #window {
     font-weight: bold;
     font-style: normal;
     opacity: 1;
+    color: @text;
     background-color: @base;
 }
 
-/* Groups */
+/* ----------- */
+/*   GROUPS   */
+/* ---------- */
 #hardware {
     padding: .5rem;
 }
@@ -93,7 +93,7 @@ window#waybar.empty #window {
     margin: 4px 3px;
     border-radius: 15px;
     border: 0px;
-    background-color: @overlay2;
+    background-color: @overlay;
     transition: all 0.3s ease-in-out;
 }
 
@@ -109,54 +109,28 @@ window#waybar.empty #window {
     border-radius: 15px;
 }
 
-.module {
-    /* background-color: @base; */
-    /* padding: 0 1rem; */
-    /* background-color: @base; */
-    /* border: 1px solid @sky; */
-    /* border-radius: 1rem; */
-}
-
-#cpu, #temperature, #disk {
-    /* border-radius: 0; */
-    /* border: none; */
-    /* background: none; */
-}
-
-#hardware {
-    /* border-radius: 1rem; */
-    /* border: 1px solid @sky; */
-    /* background-color: @base; */
-}
-    
-
-.modules-left > widget:first-child > #workspaces {
-}
-
-.modules-right > widget:last-child > #workspaces {
-}
-
-#clock {
-}
-
-#battery {
-}
+  /* ------------------- */
+ /*   POSITIVE STATES   */
+/* ------------------- */
 
 #battery.charging, #battery.plugged {
+    color: @positive;
 }
 
-@keyframes blink {
-    to {
-    }
-}
+  /* ------------------ */
+ /*   WARNING STATES   */
+/* ------------------ */
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    background: @warning;
+}
+
+  /* ---------------- */
+ /*   ERROR STATES   */
+/* ---------------- */
+
+#battery.critical:not(.charging) {
+    background: @error;
 }
 
 #power-profiles-daemon {

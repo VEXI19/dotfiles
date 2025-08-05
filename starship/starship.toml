@@ -188,3 +188,10 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+# Minimal prompt
+add_newline = false
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
