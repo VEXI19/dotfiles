@@ -3,7 +3,7 @@
 # Usage: ./linkdirs.sh <source_dir> <dest_dir>
 
 set -e
-
+echo "Args: $# : $@"
 if [ $# -ne 2 ]; then
   echo "Usage: $0 <source_dir> <dest_dir>"
   exit 1
