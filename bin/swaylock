@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec /usr/bin/swaylock -c 000000 --effect-blur 20x20 --clock --indicator --screenshots --effect-scale 0.1 --show-failed-attempts
