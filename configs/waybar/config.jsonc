@@ -19,7 +19,7 @@
   ],
   "modules-center": [
     // "hyprland/window",
-    "clock",
+    "clock"
   ],
   "modules-right": [
     // "idle_inhibitor",
@@ -267,10 +267,9 @@
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
     "menu-actions": {
-      "lock": "/home/dominik/.local/bin/swaylock",
+      "lock": "hyprlock",
       "shutdown": "systemctl poweroff",
       "reboot": "systemctl reboot",
-      "suspend": "sswaylock -c 000000 & systemctl suspend",
       "hibernate": "systemctl hibernate"
     }
   }
