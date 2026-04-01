@@ -16,8 +16,8 @@ map("n", "<leader>q", "<CMD>q<CR>")
 map("i", "jk", "<ESC>")
 
 -- Find and replace
-map("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]], { desc = "Replace word under cursor" })
--- map("v", "<leader>fr", [[:s/\%V//gc<Left><Left><Left>]], { desc = "Replace selection" })
+map("n", "<teader>fr", [[:%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]], { desc = "Replace word under cursor" })
+map("v", "<leader>fr", [["hy:%s/<C-r>h/<C-r>h/gI<Left><Left><left>]])
 
 -- File navigation
 map("n", "<C-p>", ":bp<CR>")
@@ -52,6 +52,8 @@ map("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Find string in 
 map("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Fuzzy find opened files" })
 map("n", "<leader>fs", "<CMD>Telescope git_status<CR>", { desc = "Show git file diffs" })
 map("n", "<leader>fc", "<CMD>Telescope git_commits<CR>", { desc = "Browse git commits" })
+map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
+map("n", "gi", "<cmd>Telescope lsp_references<CR>")
 
 -- Errors
 map("n", "<leader>e", vim.diagnostic.open_float)
