@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "model": "opencode/minimax-m2.5-free",
+      "prompt": "{file:./prompts/build.md}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "model": "opencode/minimax-m2.5-free",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "ask": {
+      "mode": "primary",
+      "model": "opencode/minimax-m2.5-free",
+      "prompt": "You are an agent that answers questions. This will be general quations, not neccessarly about the project.",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "mode": "subagent",
+      "model": "opencode/minimax-m2.5-free",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "tools": {
+        "write": false,
+        "edit": false
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Save
-map("n", "<leader>w", "<CMD>update<CR>")
+map("n", "<leader>w", "<CMD>w<CR>")
 
 -- Quit
 map("n", "<leader>q", "<CMD>q<CR>")
@@ -27,6 +27,9 @@ map("n", "<leader><leader>", "<C-^>", { desc = "Toggle last file" })
 -- Rename variable
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
+-- Lsp hover
+map("n", "<leader>k", vim.lsp.buf.hover, { buffer = bufnr })
+
 -- NeoTree
 map("n", "<leader>h", "<CMD>Neotree toggle<CR>")
 
@@ -41,10 +44,14 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-j>", "<C-w>j")
 
 -- Resize Windows
-map("n", "<C-Left>", "<C-w>>")
-map("n", "<C-Right>", "<C-w><")
-map("n", "<C-Up>", "<C-w>-")
-map("n", "<C-Down>", "<C-w>+")
+map("n", "<A-h>", "<C-w>>")
+map("n", "<A-l>", "<C-w><")
+map("n", "<A-k>", "<C-w>-")
+map("n", "<A-j>", "<C-w>+")
+-- map("n", "<C-Left>", "<C-w>>")
+-- map("n", "<C-Right>", "<C-w><")
+-- map("n", "<C-Up>", "<C-w>-")
+-- map("n", "<C-Down>", "<C-w>+")
 
 -- Telescope
 map("n", "<leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Fuzzy find files in cwd" })
@@ -59,3 +66,6 @@ map("n", "gi", "<cmd>Telescope lsp_references<CR>")
 map("n", "<leader>e", vim.diagnostic.open_float)
 map("n", "<leader>[", vim.diagnostic.goto_prev)
 map("n", "<leader>]", vim.diagnostic.goto_next)
+
+-- List actions
+map("n", "<leader>ca", vim.lsp.buf.code_action)

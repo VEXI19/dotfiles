@@ -1,3 +1,3 @@
-require("dominik.settings")
-require("dominik.maps")
-require("dominik.lazy")
+require("maps")
+require("settings")
+require("plugins")

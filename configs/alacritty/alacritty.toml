@@ -6,7 +6,7 @@ live_config_reload = true
 padding = { x = 10, y = 10 }
 decorations = "None"
 blur = false
-opacity = 0.85
+opacity = 0.8
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
