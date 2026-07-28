@@ -7,7 +7,7 @@ local function map(mode, lhs, rhs, opts)
 end
 map("n", "<leader>lf", vim.lsp.buf.format)
 -- clear search highlighting with ESC
-map("n", "<Esc>", "<cmd>nohlsearch<CR>") 
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
@@ -63,10 +63,18 @@ map("n", "<leader>fc", "<CMD>Telescope git_commits<CR>", { desc = "Browse git co
 map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "gi", "<cmd>Telescope lsp_references<CR>")
 
+-- autocomplete
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-@>", "<C-x><C-o>", { noremap = true, silent = true })
+
 -- Errors
 map("n", "<leader>e", vim.diagnostic.open_float)
-map("n", "<leader>[", vim.diagnostic.goto_prev)
-map("n", "<leader>]", vim.diagnostic.goto_next)
+map("n", "<leader>[", function()
+	vim.diagnostic.jump({ count = 1 })
+end)
+map("n", "<leader>]", function()
+	vim.diagnostic.jump({ count = 1 })
+end)
 
 -- List actions
 map("n", "<leader>ca", vim.lsp.buf.code_action)
