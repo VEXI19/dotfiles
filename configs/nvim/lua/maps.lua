@@ -63,9 +63,6 @@ map("n", "<leader>fc", "<CMD>Telescope git_commits<CR>", { desc = "Browse git co
 map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "gi", "<cmd>Telescope lsp_references<CR>")
 
--- autocomplete
-vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { noremap = true, silent = true })
-vim.keymap.set("i", "<C-@>", "<C-x><C-o>", { noremap = true, silent = true })
 
 -- Errors
 map("n", "<leader>e", vim.diagnostic.open_float)
