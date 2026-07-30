@@ -1,39 +1,47 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("completion") -- exported by lua/cmp.lua
+local capabilities = require("completion") -- from lua/completion.lua
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-	handlers = {
-		-- Automatically called for every server mason-lspconfig knows about
-		function(server_name)
-			local opts = {
-				capabilities = capabilities,
-			}
+-- ── Per-server config using Neovim 0.11+ native API ──────────────────────────
+-- These are registered BEFORE mason-lspconfig's auto-enable runs, so
+-- vim.lsp.enable() picks up our custom settings.
 
-			-- Per-server tweaks
-			if server_name == "lua_ls" then
-				opts.settings = {
-					Lua = {
-						runtime = { version = "LuaJIT" },
-						diagnostics = {
-							globals = { "vim", "require" },
-						},
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-						},
-						telemetry = { enable = false },
-					},
-				}
-			end
-
-			lspconfig[server_name].setup(opts)
-		end,
+vim.lsp.config("lua_ls", {
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = { version = "LuaJIT" },
+			diagnostics = {
+				globals = { "vim", "require" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = { enable = false },
+		},
 	},
 })
 
+vim.lsp.config("jsonls", {
+	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = {
+				{
+					fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+					url = "https://json.schemastore.org/tsconfig.json",
+				},
+			},
+			validate = { enable = true },
+		},
+	},
+})
+
+require("mason").setup()
+-- mason-lspconfig auto-enables installed servers via vim.lsp.enable()
+require("mason-lspconfig").setup()
+
 require("mason-tool-installer").setup({
 	ensure_installed = {
-		"lua_ls",
+		"lua-language-server",
 		"stylua",
 		"black",
 		"clangd",
@@ -46,11 +54,9 @@ require("mason-tool-installer").setup({
 		"html-lsp",
 		"isort",
 		"json-lsp",
-		"lua-language-server",
 		"prettier",
 		"pylint",
 		"pyright",
-		"stylua",
 		"tailwindcss-language-server",
 		"vtsls",
 	},

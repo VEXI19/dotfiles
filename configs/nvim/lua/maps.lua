@@ -9,7 +9,7 @@ map("n", "<leader>lf", vim.lsp.buf.format)
 -- clear search highlighting with ESC
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+map("n", "<leader>f", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Save
 map("n", "<leader>w", "<CMD>w<CR>")
@@ -62,7 +62,6 @@ map("n", "<leader>fs", "<CMD>Telescope git_status<CR>", { desc = "Show git file 
 map("n", "<leader>fc", "<CMD>Telescope git_commits<CR>", { desc = "Browse git commits" })
 map("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 map("n", "gi", "<cmd>Telescope lsp_references<CR>")
-
 
 -- Errors
 map("n", "<leader>e", vim.diagnostic.open_float)

@@ -38,8 +38,8 @@ vim.o.inccommand = "split" -- show substitute in a window
 vim.o.cursorline = true -- highlight current line
 vim.o.scrolloff = 10 -- minimal number of lines to keep above and bellow cursor
 vim.o.confirm = true
-
 vim.diagnostic.config({
+	update_in_insert = true,
 	float = {
 		border = "rounded",
 		source = "always",
@@ -55,33 +55,29 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- show only most severe lsp info
-local orig_signs_handler = vim.diagnostic.handlers.signs
+-- ── Diagnostic signs ────────────────────────────────────────────────
+-- Only show the most severe diagnostic per line (keeps second sign
+-- column free for git signs).
 
-vim.diagnostic.handlers.signs = {
-	show = function(namespace, bufnr, diagnostics, opts)
-		-- Group diagnostics by line number and select the highest severity (lowest number)
-		local highest_severity_per_line = {}
+local orig_signs_show = vim.diagnostic.handlers.signs.show
 
-		for _, d in ipairs(diagnostics) do
-			local existing = highest_severity_per_line[d.lnum]
-			-- Lower number = higher severity (ERROR = 1, WARN = 2, INFO = 3)
-			if not existing or d.severity < existing.severity then
-				highest_severity_per_line[d.lnum] = d
-			end
+vim.diagnostic.handlers.signs.show = function(namespace, bufnr, diagnostics, opts)
+	-- Show only the highest severity diagnostic per line
+	local per_line = {}
+	for _, d in ipairs(diagnostics) do
+		local cur = per_line[d.lnum]
+		if not cur or d.severity < cur.severity then
+			per_line[d.lnum] = d
 		end
+	end
 
-		local filtered = {}
-		for _, d in pairs(highest_severity_per_line) do
-			table.insert(filtered, d)
-		end
+	local filtered = {}
+	for _, d in pairs(per_line) do
+		filtered[#filtered + 1] = d
+	end
 
-		orig_signs_handler.show(namespace, bufnr, filtered, opts)
-	end,
-	hide = function(namespace, bufnr)
-		orig_signs_handler.hide(namespace, bufnr)
-	end,
-}
+	orig_signs_show(namespace, bufnr, filtered, opts)
+end
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
