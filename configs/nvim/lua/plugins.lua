@@ -29,6 +29,10 @@ vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+
+	-- telescope
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
 })
 
 require("neo-tree").setup({
@@ -57,3 +61,67 @@ vim.diagnostic.config({
 		priority = 20, -- Keep LSP signs lower priority than gitsigns
 	},
 })
+
+-- ── Telescope ──────────────────────────────────────────────────────────────────────
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+
+telescope.setup({
+	defaults = {
+		file_ignore_patterns = {
+			"node_modules",
+			".git/",
+			".cache",
+			"target/",
+			"build/",
+			"dist/",
+			".next/",
+			"__pycache__",
+			"%.o$",
+			"%.class$",
+			".mypy_cache",
+			".pytest_cache",
+		},
+		path_display = { "smart" },
+		hidden = true,
+		mappings = {
+			i = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
+				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+			},
+		},
+	},
+	pickers = {
+		find_files = {
+			hidden = true,
+			no_ignore = false,
+		},
+		live_grep = {
+			additional_args = { "--hidden", "--glob=!.git/*" },
+		},
+		buffers = {
+			sort_lastused = true,
+			previewer = false,
+			mappings = {
+				i = {
+					["<C-d>"] = actions.delete_buffer,
+				},
+			},
+		},
+		git_status = {
+			additional_args = { "--untracked-files=all" },
+		},
+	},
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
+	},
+})
+
+-- Load fzf extension (pcatch in case compilation failed)
+pcall(telescope.load_extension, "fzf")
