@@ -1,9 +1,6 @@
 autocomplete for imports
 select line for opencode
 
-autozamykanie bracketów
-
-
 quick fix has is a list of errors
 todo finder
 
@@ -14,4 +11,3 @@ neotree does not sync with selected file from telescope and going between buffer
 
 
 
-problems with errors from lsp in insert mode (when

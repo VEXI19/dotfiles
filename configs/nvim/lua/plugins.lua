@@ -33,6 +33,9 @@ vim.pack.add({
 	-- telescope
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
 	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+
+	-- autopairs
+	{ src = "https://github.com/windwp/nvim-autopairs" },
 })
 
 require("neo-tree").setup({
@@ -125,3 +128,15 @@ telescope.setup({
 
 -- Load fzf extension (pcatch in case compilation failed)
 pcall(telescope.load_extension, "fzf")
+
+-- ── Autopairs ──────────────────────────────────────────────────────────────────────
+local autopairs = require("nvim-autopairs")
+
+autopairs.setup({
+	enable_check_bracket_line = false,
+})
+
+-- Keep cursor inside brackets when confirming cmp completions
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require("cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
