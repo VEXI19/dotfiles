@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Toggle fullscreen
+hyprctl dispatch fullscreen 0
+
+# Wait for Hyprland to update the state
+sleep 0.05
+
+# Is the active window fullscreen now?
+fullscreen=$(hyprctl activewindow -j | jq -r '.fullscreen')
+
+if [ "$fullscreen" = "1" ]; then
+    # Hide Waybar
+    pkill -SIGUSR1 waybar
+else
+    # Show Waybar
+    pkill -SIGUSR1 waybar
+fi
