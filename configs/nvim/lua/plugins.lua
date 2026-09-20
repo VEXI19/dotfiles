@@ -36,6 +36,9 @@ vim.pack.add({
 
 	-- autopairs
 	{ src = "https://github.com/windwp/nvim-autopairs" },
+
+	-- diff view
+	{ src = "https://github.com/sindrets/diffview.nvim" },
 })
 
 require("neo-tree").setup({
