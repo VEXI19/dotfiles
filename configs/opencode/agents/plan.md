@@ -1,7 +1,8 @@
 ---
 description: Creates strategic project plans and architecture without making direct code changes
 mode: primary
-model: opencode/deepseek-v4-flash-free
+model: openai/gpt-5.6-sol
+color: "#f9c784"
 temperature: 0.2
 tools:
   write: false

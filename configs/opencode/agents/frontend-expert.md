@@ -1,7 +1,7 @@
 ---
 description: Handles all UI/UX, React, and frontend development, ensuring cross-browser compatibility.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3-ultra-free
 temperature: 0.2
 tools:
   write: true

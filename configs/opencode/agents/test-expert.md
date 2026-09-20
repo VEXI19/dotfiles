@@ -1,7 +1,7 @@
 ---
 description: Creates automated tests for new features and code changes to ensure stability.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3-ultra-free
 temperature: 0.1
 tools:
   write: true

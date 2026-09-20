@@ -1,7 +1,8 @@
 ---
 description: Answers questions, explains code, and clarifies technical concepts
 mode: primary
-model: opencode/deepseek-v4-flash-free
+model: openai/gpt-5.6-luna
+color: "#e7e7e7"
 temperature: 0.4
 tools:
   write: false

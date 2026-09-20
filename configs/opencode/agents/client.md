@@ -1,7 +1,7 @@
 ---
 description: Argues for the business and user side; acts as the Product Owner to verify feature completeness.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3.5-lightning-free
 temperature: 0.4
 tools:
   write: false

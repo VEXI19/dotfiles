@@ -1,7 +1,7 @@
 ---
 description: Acts as a senior developer gatekeeper; checks code for consistency, readability, and best practices.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3-ultra-free
 temperature: 0.1
 tools:
   write: false

@@ -1,7 +1,7 @@
 ---
 description: Keeps technical documentation, READMEs, and architectural records in sync with code updates.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3.5-lightning-free
 temperature: 0.2
 tools:
   write: true

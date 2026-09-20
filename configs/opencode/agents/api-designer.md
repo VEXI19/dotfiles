@@ -1,7 +1,7 @@
 ---
 description: Designs robust API contracts, endpoints, and data payloads.
 mode: subagent
-model: opencode/deepseek-v4-flash-free
+model: opencode/nemotron-3-ultra-free
 temperature: 0.2
 tools:
   write: true

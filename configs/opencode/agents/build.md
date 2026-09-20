@@ -1,7 +1,8 @@
 ---
 description: Executes plans, writes code, and modifies project files
 mode: primary
-model: opencode/deepseek-v4-flash-free
+model: openai/gpt-5.6-terra
+color: "#f45b69"
 temperature: 0.1
 tools:
   write: true
