@@ -1,0 +1,148 @@
+* {
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    color: #cdd6f4;
+}
+
+window,
+.control-window {
+    background-color: #1e1e2e;
+    border: 1px solid #89b4fa;
+    border-radius: 13px;
+}
+
+/* GTK gives notebook pages, viewport widgets, and paned children an opaque
+ * theme background unless they are explicitly painted. Keep every container
+ * in this standalone popup on the same dark base. */
+window,
+notebook,
+notebook > stack,
+notebook > stack > box,
+paned,
+paned > separator,
+scrolledwindow,
+viewport,
+box,
+grid,
+flowbox,
+flowboxchild {
+    background-color: #1e1e2e;
+    background-image: none;
+}
+
+scrolledwindow,
+viewport {
+    border: none;
+}
+
+paned > separator {
+    min-width: 1px;
+    background-color: #45475a;
+}
+
+.header {
+    background-color: #1e1e2e;
+    border-bottom: 1px solid #45475a;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.subtitle,
+.status {
+    color: #a6adc8;
+}
+
+.status {
+    padding: 7px 9px;
+    background-color: #313244;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+}
+
+button,
+combobox button,
+spinbutton {
+    min-height: 28px;
+    padding: 5px 9px;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    background-image: none;
+    background-color: #313244;
+    color: #cdd6f4;
+    box-shadow: none;
+}
+
+button:hover,
+combobox button:hover {
+    border-color: #89b4fa;
+    background-color: #45475a;
+}
+
+button:active,
+button:checked,
+button.suggested-action {
+    border-color: #89b4fa;
+    background-color: #3b4d68;
+}
+
+button.destructive-action {
+    border-color: #f38ba8;
+    background-color: #533645;
+}
+
+notebook > header {
+    border: none;
+    background-color: #1e1e2e;
+}
+
+notebook > header > tabs > tab {
+    padding: 7px 12px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    color: #a6adc8;
+}
+
+notebook > header > tabs > tab:checked {
+    border-bottom-color: #89b4fa;
+    color: #cdd6f4;
+}
+
+label {
+    background-color: transparent;
+}
+
+menu,
+popover.background {
+    background-color: #1e1e2e;
+    border: 1px solid #45475a;
+}
+
+entry {
+    background-color: #313244;
+    border: 1px solid #45475a;
+    color: #cdd6f4;
+}
+
+scrollbar {
+    background-color: #1e1e2e;
+}
+
+scrollbar slider {
+    min-width: 6px;
+    min-height: 6px;
+    border-radius: 6px;
+    background-color: #45475a;
+}
+
+scrollbar slider:hover {
+    background-color: #89b4fa;
+}
