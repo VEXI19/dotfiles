@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Qalculate!
+GenericName=Calculator
+Comment=Powerful and easy to use calculator
+Exec=/home/dominik/.config/qalculate/launch.sh
+Icon=qalculate
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=calculator;math;scientific;conversion;currency;
+StartupNotify=true
+StartupWMClass=qalculate-gtk

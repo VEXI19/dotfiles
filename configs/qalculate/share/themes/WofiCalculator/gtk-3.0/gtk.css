@@ -1,0 +1,187 @@
+@define-color base #1e1e2e;
+@define-color surface #313244;
+@define-color surface_raised #45475a;
+@define-color text #cdd6f4;
+@define-color muted #9399b2;
+@define-color accent #89b4fa;
+@define-color accent_surface #3b4d68;
+@define-color border #45475a;
+
+* {
+    color: @text;
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 14px;
+    caret-color: @accent;
+}
+
+window,
+.background {
+    background-color: @base;
+    color: @text;
+}
+
+headerbar,
+.titlebar,
+toolbar,
+menubar,
+.toolbar {
+    min-height: 32px;
+    padding: 4px 6px;
+    border: none;
+    border-bottom: 1px solid @border;
+    background-color: @base;
+    background-image: none;
+    box-shadow: none;
+}
+
+label,
+image {
+    color: @text;
+}
+
+entry,
+spinbutton,
+textview,
+textview text,
+.view,
+treeview.view {
+    padding: 7px 9px;
+    border: 1px solid @border;
+    border-radius: 8px;
+    background-color: @surface;
+    color: @text;
+    background-image: none;
+    box-shadow: none;
+}
+
+entry:focus,
+spinbutton:focus,
+textview:focus {
+    border-color: @accent;
+    background-color: #3b3d52;
+}
+
+entry selection,
+textview selection,
+treeview.view:selected,
+.view:selected {
+    background-color: @accent_surface;
+    color: @text;
+}
+
+button,
+modelbutton {
+    min-height: 28px;
+    padding: 6px 10px;
+    border: 1px solid @border;
+    border-radius: 8px;
+    background-color: @surface;
+    background-image: none;
+    color: @text;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button:hover,
+modelbutton:hover {
+    border-color: @accent;
+    background-color: @surface_raised;
+}
+
+button:active,
+button:checked,
+togglebutton:checked {
+    border-color: @accent;
+    background-color: @accent_surface;
+}
+
+button.suggested-action,
+button.default {
+    border-color: @accent;
+    background-color: @accent_surface;
+    color: #ffffff;
+}
+
+button:disabled,
+entry:disabled {
+    color: @muted;
+    background-color: #292b3d;
+}
+
+notebook > header {
+    border: none;
+    background-color: @base;
+}
+
+notebook > header > tabs > tab {
+    padding: 7px 10px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    color: @muted;
+}
+
+notebook > header > tabs > tab:checked {
+    border-bottom-color: @accent;
+    color: @text;
+}
+
+menu,
+popover.background,
+.menu,
+tooltip {
+    padding: 5px;
+    border: 1px solid @border;
+    border-radius: 8px;
+    background-color: @base;
+    color: @text;
+    box-shadow: none;
+}
+
+menuitem,
+popover modelbutton {
+    padding: 7px 10px;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+menuitem:hover,
+popover modelbutton:hover {
+    background-color: @accent_surface;
+}
+
+separator {
+    min-width: 1px;
+    min-height: 1px;
+    background-color: @border;
+}
+
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    min-width: 6px;
+    min-height: 6px;
+    border-radius: 6px;
+    background-color: @surface_raised;
+}
+
+scrollbar slider:hover {
+    background-color: @accent;
+}
+
+checkbutton check,
+radiobutton radio {
+    min-width: 14px;
+    min-height: 14px;
+    border: 1px solid @border;
+    border-radius: 4px;
+    background-color: @surface;
+}
+
+checkbutton check:checked,
+radiobutton radio:checked {
+    border-color: @accent;
+    background-color: @accent;
+}
