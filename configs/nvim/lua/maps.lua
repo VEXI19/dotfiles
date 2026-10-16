@@ -66,7 +66,7 @@ map("n", "gi", "<cmd>Telescope lsp_references<CR>")
 -- Errors
 map("n", "<leader>e", vim.diagnostic.open_float)
 map("n", "<leader>[", function()
-	vim.diagnostic.jump({ count = 1 })
+	vim.diagnostic.jump({ count = -1 })
 end)
 map("n", "<leader>]", function()
 	vim.diagnostic.jump({ count = 1 })
