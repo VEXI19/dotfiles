@@ -1,46 +1,80 @@
+/* Catppuccin-inspired launcher, aligned with the Waybar palette. */
+
 window {
-  margin: 0px;
-  background-color: transparent;
-}
-
-#input {
-  margin: 5px;
-  border-radius: 8px;
-  border: none;
-  color: #d8dee9;
-  background-color: #3b4252;
-}
-
-#inner-box {
-  margin: 5px;
-  border: none;
-  background-color: #2e3440;
+    margin: 0;
+    border: 1px solid #89b4fa;
+    border-radius: 13px;
+    background-color: rgba(30, 30, 46, 0.96);
+    color: #cdd6f4;
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 14px;
 }
 
 #outer-box {
-  margin: 5px;
-  border: none;
-  background-color: #2e3440;
-  border-radius: 8px;
-  padding: 4px;
+    margin: 0;
+    padding: 7px;
+    border: none;
+    border-radius: 12px;
+    background-color: transparent;
+}
+
+#input {
+    margin: 3px 3px 7px;
+    padding: 8px 11px;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+    outline: none;
+    background-color: #313244;
+    color: #cdd6f4;
+    caret-color: #89b4fa;
+}
+
+#input:focus {
+    border-color: #89b4fa;
+    background-color: #3b3d52;
+}
+
+#input placeholder {
+    color: #9399b2;
+    opacity: 1;
+}
+
+#inner-box {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
 }
 
 #scroll {
-  margin: 0px;
-  border: none;
-}
-
-#text {
-  margin: 5px;
-  border: none;
-  color: #d8dee9;
-}
-
-#entry:selected {
-  background-color: #3b4252;
+    margin: 0;
+    border: none;
 }
 
 #entry {
-  border: none;
-  border-radius: 8px;
+    margin: 1px 3px;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #cdd6f4;
+}
+
+#entry:hover {
+    background-color: #292b3d;
+}
+
+#entry:selected {
+    border-color: transparent;
+    background-color: #3b4d68;
+    color: #ffffff;
+}
+
+#text {
+    margin: 0 6px;
+    color: inherit;
+}
+
+#img {
+    margin-right: 6px;
 }
