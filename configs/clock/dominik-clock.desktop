@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Clock
+GenericName=Clock, alarms and timers
+Comment=Persistent timers, alarms and stopwatch
+Exec=/home/dominik/.config/clock/clock.py ui
+Terminal=false
+Categories=Utility;Clock;
+Keywords=clock;alarm;timer;stopwatch;pomodoro;
+StartupNotify=true

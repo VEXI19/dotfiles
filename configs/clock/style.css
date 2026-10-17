@@ -1,0 +1,18 @@
+* { font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Free", sans-serif; font-size: 13px; color: #cdd6f4; }
+window, .clock-window, notebook, notebook > stack, notebook > stack > box, box, grid, scrolledwindow, viewport { background-color: #1e1e2e; background-image: none; }
+window, .clock-window { border: 1px solid #89b4fa; border-radius: 13px; }
+.header { border-bottom: 1px solid #45475a; }
+.clock-time { font-size: 28px; font-weight: 700; }
+.stopwatch-time { font-size: 42px; font-weight: 700; padding: 18px 0; }
+.title { font-size: 18px; font-weight: 700; }
+.alert-label { font-size: 22px; font-weight: 700; }
+.section-title { font-size: 15px; font-weight: 700; padding-top: 5px; }
+.subtitle { color: #a6adc8; }
+button, combobox button, spinbutton { min-height: 28px; padding: 5px 9px; border: 1px solid #45475a; border-radius: 8px; background-image: none; background-color: #313244; color: #cdd6f4; box-shadow: none; }
+button:hover, combobox button:hover { border-color: #89b4fa; background-color: #45475a; }
+button:active, button:checked, button.suggested-action { border-color: #89b4fa; background-color: #3b4d68; }
+entry { padding: 5px 8px; border: 1px solid #45475a; border-radius: 8px; background-color: #313244; color: #cdd6f4; }
+notebook > header { border: none; background-color: #1e1e2e; }
+notebook > header > tabs > tab { padding: 7px 12px; border: none; border-bottom: 2px solid transparent; background-color: transparent; color: #a6adc8; }
+notebook > header > tabs > tab:checked { border-bottom-color: #89b4fa; color: #cdd6f4; }
+scrollbar { background-color: #1e1e2e; } scrollbar slider { min-width: 6px; min-height: 6px; border-radius: 6px; background-color: #45475a; }
