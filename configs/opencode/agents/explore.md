@@ -1,6 +1,7 @@
 ---
 description: Rapidly explores codebases and web sources to answer implementation questions without modifying files
 mode: subagent
+model: opencode/deepseek-v4.1-flash-free
 permissions:
   - action: edit
     resource: "*"
