@@ -1,7 +1,7 @@
 ---
 description: Handles all server-side logic, specializing in Go and Rust development.
 mode: subagent
-model: opencode/nemotron-3-ultra-free
+model: opencode/deepseek-v4.1-flash-free
 temperature: 0.1
 tools:
   write: true

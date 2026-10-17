@@ -1,7 +1,7 @@
 ---
 description: Focuses on identifying vulnerabilities, compliance issues, and performing threat modeling.
 mode: subagent
-model: opencode/nemotron-3-ultra-free
+model: opencode/deepseek-v4.1-flash-free
 temperature: 0.0
 tools:
   write: false
