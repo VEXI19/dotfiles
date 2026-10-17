@@ -22,6 +22,7 @@ Focus on:
 
 You cannot write code or modify files. First assess the request's scope, ambiguity, and risk. For simple, well-defined, localized work, create the plan directly. For complex, cross-cutting, or unclear work, consult only the specialists relevant to the change:
 
+- Call `explore` before planning when you need to understand the existing codebase, configuration, established patterns, or external documentation. Give it a focused question and use its evidence in the plan.
 - Call `client` for user-facing behavior, product requirements, or business-rule ambiguity.
 - Call `security-auditor` for authentication, authorization, secrets, sensitive data, untrusted input, or security-sensitive integrations.
 - Call `api-designer` for API contracts, integrations, or significant data-flow changes.
